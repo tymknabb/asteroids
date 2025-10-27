@@ -11,7 +11,6 @@ class Player(CircleShape):
         self.rotation = 0
         self.shot_timer = 0
         self.acceleration = pygame.Vector2(0, 0)
-        self.accel_factor = 0
 
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
