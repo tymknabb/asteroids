@@ -1,5 +1,4 @@
 import pygame
-from sys import exit
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from player import Player
@@ -41,13 +40,16 @@ def main():
         for asteroid in asteroids:
             if cur_player.collides_with(asteroid):
                 print("Game over!")
-                exit(0)
+                game_on = False
+            for shot in shots:
+                if shot.collides_with(asteroid):
+                    shot.kill()
+                    asteroid.split()
         for sprite in drawable:
             sprite.draw(screen)
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000
-        
 
 if __name__ == "__main__":
     main()
