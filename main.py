@@ -4,6 +4,7 @@ from asteroidfield import AsteroidField
 from player import Player
 from shot import Shot
 from constants import *
+from logger import log_state
 
 
 def main():
@@ -34,6 +35,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+        log_state()
         screen.fill("black")
         for actor in updatable:
             actor.update(dt)
